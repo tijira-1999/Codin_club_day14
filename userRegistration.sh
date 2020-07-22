@@ -35,3 +35,12 @@ then
 else
         echo "invalid mobile number"
 fi
+
+read -p "Enter password (min 8 characters) " pass
+passPattern="[0-9a-zA-Z]{8,}"
+if [[ $pass =~ $passPattern ]]
+then
+        echo "valid password"
+else
+        echo "invalid password"
+fi
