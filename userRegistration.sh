@@ -39,7 +39,8 @@ fi
 read -p "Enter password (min 8 characters) " passwd
 
 digit="[0-9]+"
-if [[ ${#passwd} -ge 8 && "$passwd"==[[:lower:]]+ && "$passwd"==[[:upper:]]+ && $passwd =~ $digit ]]
+special="[!@#$%^&*]+"
+if [[ ${#passwd} -ge 8 && "$passwd"==[[:lower:]]+ && "$passwd"==[[:upper:]]+ && $passwd =~ $digit && "$passwd"==[@#%^-*+/]+ ]]
 then
         echo "valid password"
 else
