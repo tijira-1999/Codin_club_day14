@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 read -p "Enter first name " fname
 fnamePattern="^[A-Z]{1}[a-zA-Z]{2,}$"
@@ -36,11 +36,21 @@ else
         echo "invalid mobile number"
 fi
 
-read -p "Enter password (min 8 characters) " pass
-passPattern="[0-9a-zA-Z]{8,}"
-if [[ $pass =~ $passPattern ]]
+read -p "Enter password (min 8 characters) " passwd
+
+#passPattern="^(?=.*?[A-Z])[0-9a-zA-Z]{8,}"
+#passPattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+#passPattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+#passPattern="^(?=.{8,}$)(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[a-z])(?=.*[0-9]).*"
+#passPattern="^(?=.{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?\W).*$"
+#passPattern="^[a-z(A-Z)+(0-9)+(!@#$&){1}]{8,}$"
+#passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@])(?=.{8,})$"
+if [[ ${#passwd} -ge 8 && "$passwd"==[[:lower:]]+ && "$passwd"==[[:upper:]]+ ]]
+#if [[ $passwd =~ $passPattern ]]
 then
         echo "valid password"
 else
         echo "invalid password"
 fi
+
+
